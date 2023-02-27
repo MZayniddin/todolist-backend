@@ -2,8 +2,6 @@ const express = require("express");
 const cors = require("cors");
 const dotenv = require("dotenv");
 dotenv.config();
-const usersFile = "users.json";
-const bcrypts = require("bcryptjs");
 
 // INIT APP
 const app = express();
