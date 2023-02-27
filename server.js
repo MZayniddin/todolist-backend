@@ -15,6 +15,10 @@ const authRouter = require("./routes/auth");
 
 app.use(authRouter)
 
+// MIDDLEWARE
+const authMiddleware = require("./middleware/auth-middleware");
+app.use(authMiddleware)
+
 // LISTENING PORT
 app.listen(PORT, () => {
   console.log("Server is running on " + PORT);
