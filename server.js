@@ -12,7 +12,6 @@ app.use(express.json());
 
 // ROUTES
 const authRouter = require("./routes/auth");
-
 app.use(authRouter)
 
 // MIDDLEWARE
