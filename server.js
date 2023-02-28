@@ -10,8 +10,8 @@ const PORT = process.env.PORT || 8080;
 app.use(cors());
 app.use(express.json());
 
-const authMiddleware = require("./middleware/auth-middleware");
 // MIDDLEWARE
+const authMiddleware = require("./middleware/auth-middleware");
 
 // ROUTES
 const authRouter = require("./routes/auth");
