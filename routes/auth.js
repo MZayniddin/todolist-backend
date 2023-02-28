@@ -4,7 +4,7 @@ const { Router } = require("express");
 const router = Router();
 
 // IMPORT CONTROLLER
-const Auth = require("../controllers/auth-controllers");
+const Auth = require("../controllers/auth-controller");
 
 // REGISTER
 router.post("/auth/register", Auth.REGISTER);

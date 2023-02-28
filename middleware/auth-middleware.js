@@ -6,6 +6,6 @@ module.exports = (req, res, next) => {
     req.user = userInfo;
     next();
   } catch (err) {
-    res.status(401).send({ message: err });
+    res.status(401).send({ message: err.message });
   }
 };
