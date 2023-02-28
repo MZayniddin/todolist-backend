@@ -8,9 +8,11 @@ const router = Router();
 router.post("/todo/create", todoCtr.CREATE);
 
 // UPDATE TODO
-router.post("/todo/update/:id", todoCtr.UPDATE);
+router.put("/todo/update/:id", todoCtr.UPDATE);
 
 // GET TODO LIST
 router.get("/todo/list", todoCtr.GET);
+
+router.delete("/todo/destroy/:id", todoCtr.DELETE);
 
 module.exports = router;

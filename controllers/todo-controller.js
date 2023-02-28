@@ -23,6 +23,7 @@ const Todo = {
       res.status(404).send({ message: err.message });
     }
   },
+
   UPDATE: (req, res) => {
     try {
       const { id } = req.params;
@@ -41,12 +42,13 @@ const Todo = {
         write_file(todosFile, allTodos);
         res.status(200).send({ message: "Successfully updated!" });
       } else {
-        res.status(404).send({ message: "Todo not found" });
+        res.status(204).send({ message: "Todo not found" });
       }
     } catch (err) {
       res.send({ message: err.message });
     }
   },
+
   GET: (req, res) => {
     try {
       const { id } = req.user;
@@ -59,6 +61,26 @@ const Todo = {
     }
   },
 
+  DELETE: (req, res) => {
+    try {
+      const todoId = +req.params.id;
+      const allTodos = read_file(todosFile);
+      let deleted = false;
+
+      allTodos.forEach((todo, index) => {
+        if (todo.id === todoId && todo.user_id === req.user.id) {
+          allTodos.splice(index, 1);
+          deleted = true;
+        }
+      });
+
+      if (!deleted) return res.status(404).send({ message: "Todo not found!" });
+      write_file(todosFile, allTodos);
+      res.status(202).send({ message: "Todo successfully deleted!" });
+    } catch (err) {
+      res.send({ message: err.message });
+    }
+  },
 };
 
 module.exports = Todo;
