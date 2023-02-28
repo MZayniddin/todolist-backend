@@ -5,5 +5,12 @@
     "username": "M.Z",
     "password": "$2a$12$4KpbQcSv7rVb07PUNiCEueQkomkNL6RTdtCmxEeJzFTHLMkSb748a",
     "profileImg": ""
+  },
+  {
+    "id": 2,
+    "email": "eshmat@gmail.com",
+    "username": "eshmatboy",
+    "password": "$2a$12$cyoi6i3ROJx68oHqmoS.FeOh/0SQ3t3hk5HjitHlm4x9z89tBO6lC",
+    "profileImg": ""
   }
 ]

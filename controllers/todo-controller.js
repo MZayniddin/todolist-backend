@@ -14,7 +14,7 @@ const Todo = {
           : 1,
         title: title,
         user_id: id,
-        created_time: new Date.now(),
+        created_time: new Date().toLocaleString(),
       });
 
       write_file(todosFile, allTodos);
@@ -47,6 +47,18 @@ const Todo = {
       res.send({ message: err.message });
     }
   },
+  GET: (req, res) => {
+    try {
+      const { id } = req.user;
+      const userTodos = read_file(todosFile).filter(
+        ({ user_id }) => user_id === id
+      );
+      res.status(200).send(userTodos);
+    } catch (err) {
+      res.send({ message: err.message });
+    }
+  },
+
 };
 
 module.exports = Todo;
