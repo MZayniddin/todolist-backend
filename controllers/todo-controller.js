@@ -23,6 +23,30 @@ const Todo = {
       res.status(404).send({ message: err.message });
     }
   },
+  UPDATE: (req, res) => {
+    try {
+      const { id } = req.params;
+      const { title } = req.body;
+      const allTodos = read_file(todosFile);
+      let changed = false;
+
+      allTodos.forEach((todo) => {
+        if (todo.id === +id) {
+          todo.title = title ? title : todo.title;
+          changed = true;
+        }
+      });
+
+      if (changed) {
+        write_file(todosFile, allTodos);
+        res.status(200).send({ message: "Successfully updated!" });
+      } else {
+        res.status(404).send({ message: "Todo not found" });
+      }
+    } catch (err) {
+      res.send({ message: err.message });
+    }
+  },
 };
 
 module.exports = Todo;
