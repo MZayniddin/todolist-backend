@@ -12,5 +12,12 @@
     "username": "eshmatboy",
     "password": "$2a$12$cyoi6i3ROJx68oHqmoS.FeOh/0SQ3t3hk5HjitHlm4x9z89tBO6lC",
     "profileImg": ""
+  },
+  {
+    "id": 3,
+    "email": "toshmat@gmail.com",
+    "username": "toshmat",
+    "password": "$2a$12$3Nf3BNKT07kreS6.lHHKc.jhc7Y3amV3PxdNMGJu3HZH1yDO8MF8y",
+    "profileImg": "1677771927146.jpg"
   }
 ]

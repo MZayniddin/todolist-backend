@@ -12,6 +12,7 @@ router.put("/todo/update/:id", todoCtr.UPDATE);
 
 // GET TODO LIST
 router.get("/todo/list", todoCtr.GET);
+router.get("/todo/list/all", todoCtr.GET_LIST);
 
 router.delete("/todo/destroy/:id", todoCtr.DELETE);
 

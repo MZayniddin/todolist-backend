@@ -42,7 +42,7 @@ const Todo = {
         write_file(todosFile, allTodos);
         res.status(200).send({ message: "Successfully updated!" });
       } else {
-        res.status(204).send({ message: "Todo not found" });
+        res.status(404).send({ message: "Todo not found" });
       }
     } catch (err) {
       res.send({ message: err.message });
@@ -55,6 +55,15 @@ const Todo = {
       const userTodos = read_file(todosFile).filter(
         ({ user_id }) => user_id === id
       );
+      res.status(200).send(userTodos);
+    } catch (err) {
+      res.send({ message: err.message });
+    }
+  },
+  
+  GET_LIST: (req, res) => {
+    try {
+      const userTodos = read_file(todosFile)
       res.status(200).send(userTodos);
     } catch (err) {
       res.send({ message: err.message });

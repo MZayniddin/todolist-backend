@@ -5,6 +5,7 @@ const ImgUpload = {
   UPLOAD: (req, res) => {
     try {
       const { id } = req.user;
+      console.log(req.file.filename)
 
       const users = read_file(usersFile);
       users.forEach((user) => {
