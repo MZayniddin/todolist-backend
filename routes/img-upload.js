@@ -2,6 +2,7 @@ const multer = require("multer");
 const path = require("path");
 const { Router } = require("express");
 
+// INIT ROUTER
 const router = Router();
 
 // CONFIG MULTER STORAGE
@@ -16,11 +17,10 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage });
 
-router.post("/upload", upload.single("file"), (req, res) => {
-  console.log("alkj");
-  res.send({
-    img_name: req.file.filename,
-  });
-});
+// IMPORT CONTROLLER
+const uploadCtr = require("../controllers/img-upload-controller");
+
+// UPLOAD IMAGE
+router.post("/profile/img", upload.single("file"), uploadCtr.UPLOAD);
 
 module.exports = router;
