@@ -16,9 +16,11 @@ const authMiddleware = require("./middleware/auth-middleware");
 // ROUTES
 const authRouter = require("./routes/auth");
 const todoRouter = require("./routes/todos");
+const uploadRouter = require("./routes/img-upload")
 app.use(authRouter);
 app.use(authMiddleware);
 app.use(todoRouter);
+app.use(uploadRouter);
 
 // LISTENING PORT
 app.listen(PORT, () => {
